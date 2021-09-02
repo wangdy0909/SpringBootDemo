@@ -19,6 +19,10 @@ kind: Deployment
 metadata:
   name: sbd
 spec:
+  selector:
+    matchLabels:
+      k8s.kuboard.cn/layer: web
+      k8s.kuboard.cn/name: sbd
   replicas: 1
   template:
     metadata:
