@@ -27,7 +27,8 @@ spec:
   template:
     metadata:
       labels:
-        app: sbd
+        k8s.kuboard.cn/layer: web
+        k8s.kuboard.cn/name: sbd
     spec:
       containers:
         - name: sbd
