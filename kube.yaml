@@ -1,32 +1,33 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: maven-service
+  name: sbd
+  namespace: k8snb
 spec:
   type: NodePort
   ports:
-  - name: maven
+  - name: sbd
     port: 8080
     nodePort: 31002
     targetPort: 8080
     protocol: TCP
   selector:
-    app: maven
+    app: sbd
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: maven-deployment
+  name: sbd
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: maven
+        app: sbd
     spec:
       containers:
-        - name: maven
-          image: 192.168.1.127/maven:latest
+        - name: sbd
+          image: 192.168.1.127/test/sbd
           ports:
           - containerPort: 8080
           env:
