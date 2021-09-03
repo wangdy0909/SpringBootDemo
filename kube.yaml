@@ -40,3 +40,6 @@ spec:
           env:
             - name: key
               value: "value"
+      # 这里指定创建的密钥
+      imagePullSecrets:
+        - name: login
