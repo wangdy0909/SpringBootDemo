@@ -1,38 +1,38 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sbd
+  name: k8snb
   namespace: k8snb
 spec:
   type: NodePort
   ports:
-  - name: sbd
+  - name: k8snb
     port: 8080
     nodePort: 30002
     targetPort: 8080
     protocol: TCP
   selector:
-    app: sbd
+    app: k8snb
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sbd
+  name: k8snb
   namespace: k8snb
 spec:
   selector:
     matchLabels:
       k8s.kuboard.cn/layer: web
-      k8s.kuboard.cn/name: sbd
+      k8s.kuboard.cn/name: k8snb
   replicas: 1
   template:
     metadata:
       labels:
         k8s.kuboard.cn/layer: web
-        k8s.kuboard.cn/name: sbd
+        k8s.kuboard.cn/name: k8snb
     spec:
       containers:
-        - name: sbd
+        - name: k8snb
           image: wangdy0909/k8snb:v1
           imagePullPolicy: IfNotPresent
           ports:
@@ -42,4 +42,4 @@ spec:
               value: "value"
       # 这里指定创建的密钥
       imagePullSecrets:
-        - name: login
+        - name: dockerhub
