@@ -7,9 +7,9 @@ spec:
   type: NodePort
   ports:
   - name: k8snb
-    port: 8080
+    port: 8082
     nodePort: 30003
-    targetPort: 8080
+    targetPort: 8082
     protocol: TCP
   selector:
     app: k8snb
@@ -36,7 +36,7 @@ spec:
           image: wangdy0909/k8snb:v1
           imagePullPolicy: IfNotPresent
           ports:
-          - containerPort: 8080
+          - containerPort: 8082
           env:
             - name: key
               value: "value"
