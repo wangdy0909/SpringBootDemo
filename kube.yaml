@@ -8,7 +8,7 @@ spec:
   ports:
   - name: k8snb
     port: 8080
-    nodePort: 30002
+    nodePort: 30003
     targetPort: 8080
     protocol: TCP
   selector:
