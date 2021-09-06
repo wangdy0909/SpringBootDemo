@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
         - name: sbd
-          image: 192.168.1.127/test/sbd:v1
+          image: wangdy0909/k8snb:v1
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 8080
