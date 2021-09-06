@@ -12,7 +12,8 @@ spec:
     targetPort: 8082
     protocol: TCP
   selector:
-    app: k8snb
+    k8s.kuboard.cn/layer: web
+    k8s.kuboard.cn/name: k8snb
 ---
 apiVersion: apps/v1
 kind: Deployment
